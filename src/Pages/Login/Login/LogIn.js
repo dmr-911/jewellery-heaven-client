@@ -80,8 +80,8 @@ const Login = () => {
                 width="30px"
                 alt=""
               />
-              <span>
-                <b> Signup With Google</b>
+              <span style={{ cursor: 'pointer' }}>
+                <b> Signin With Google</b>
               </span>
             </div>
           </Card>

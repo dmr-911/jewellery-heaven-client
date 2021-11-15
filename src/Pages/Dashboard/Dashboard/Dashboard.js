@@ -21,9 +21,9 @@ const Dashboard = () => {
 
     return (
         <Container className="my-3">
-            <h2>Dashboard</h2>
             <Row>
                 <Col xs={12} md={3} className="border border-2 border-dark">
+                    <h5><u>Dashboard</u></h5>
                     <ul>
                         <Link to={`${url}/pay`}>Pay</Link><br />
                         <Link to={`${url}/myOrders`}>My Orders</Link><br />
