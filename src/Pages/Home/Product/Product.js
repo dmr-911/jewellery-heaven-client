@@ -1,9 +1,9 @@
 import React from 'react';
 import { Card, Col, Button } from 'react-bootstrap';
-import Rating from 'react-rating';
+// import Rating from 'react-rating';
 
 const Product = ({product}) => {
-    const {name, offer, price, img, rating} = product;
+    const {name, offer, price, img, /*rating*/} = product;
     const newPrice = price - price*(offer/100);
     return (
         <Col>

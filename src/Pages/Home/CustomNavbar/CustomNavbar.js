@@ -20,6 +20,7 @@ const CustomNavbar = () => {
         <Nav className="me-auto">
         <Nav.Link as={NavLink} to="/home">Home</Nav.Link>
         <Nav.Link as={NavLink} to="/explore">Explore</Nav.Link>
+        <Nav.Link as={NavLink} to="/dashboard">Dashboard</Nav.Link>
         <Nav.Link as={NavLink} to="/login">Login</Nav.Link>
         </Nav>
     </Container>
