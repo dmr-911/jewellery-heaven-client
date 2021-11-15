@@ -1,0 +1,82 @@
+[
+    {
+        "key": 1,
+        "img": "https://i.ibb.co/VM8Wr0r/gold-curi.jpg",
+        "name": "Gold Bangles",
+        "offer": "5",
+        "price": "65400",
+        "rating": "4.3"
+    },
+    {
+        "key": 2,
+        "img": "https://i.ibb.co/YXZqDGy/heart-pendant.jpg",
+        "name": "Heart Shape Pendant",
+        "offer": "5%",
+        "price": "60800",
+        "rating": "4.1"
+    },
+    {
+        "key": 3,
+        "img": "https://i.ibb.co/nfWYZtq/necklace.jpg",
+        "name": "Necklace",
+        "offer": "10%",
+        "price": "45000",
+        "rating": "3.9"
+    },
+    {
+        "key": 4,
+        "img": "https://i.ibb.co/qR4WPKT/pearls-necklace.jpg",
+        "name": "Pearls Necklace",
+        "offer": "0%",
+        "price": "105000",
+        "rating": "4.9"
+    },
+    {
+        "key": 5,
+        "img": "https://i.ibb.co/72hnj2m/pendant.jpg",
+        "name": "Pendant",
+        "offer": "7%",
+        "price": "32500",
+        "rating": "4.6"
+    },
+    {
+        "key": 6,
+        "img": "https://i.ibb.co/R7Ns2Kj/sapphire-ring.jpg",
+        "name": "Sapphire Ring",
+        "offer": "6.5%",
+        "price": "36000",
+        "rating": "4.3"
+    },
+    {
+        "key": 7,
+        "img": "https://i.ibb.co/7RTRc2J/bracelet.jpg",
+        "name": "Bracelet",
+        "offer": "2%",
+        "price": "28000",
+        "rating": "4.1"
+    },
+    {
+        "key": 8,
+        "img": "https://i.ibb.co/bP381Vz/curi.jpg",
+        "name": "Bangles",
+        "offer": "10%",
+        "price": "58500",
+        "rating": "4.3"
+    },
+    {
+        "key": 9,
+        "img": "https://i.ibb.co/RSDZ9qn/diamond-ring.jpg",
+        "name": "Diamond Ring",
+        "offer": "2%",
+        "price": "23000",
+        "rating": "4.8"
+    },
+    {
+        "key": 10,
+        "img": "https://i.ibb.co/J5xcX1B/ear-rings.png",
+        "name": "Ear Rings",
+        "offer": "2%",
+        "price": "19000",
+        "rating": "4.9"
+    }
+]
