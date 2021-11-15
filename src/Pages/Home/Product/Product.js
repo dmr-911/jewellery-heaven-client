@@ -14,7 +14,7 @@ const Product = ({product}) => {
         <Col>
         <Card className="bg-dark text-white">
         <div className="d-flex justify-content-between p-0">
-            <p className="m-0" style={{ padding: '5px 20px', backgroundColor: 'red', color: 'white', borderRadius: '0 0 30px 0'  }}>{offer}% Off</p>
+            <p className="m-0" style={{ padding: '5px 20px', backgroundColor: 'red', color: 'white', borderRadius: '0 0 30px 0'  }}>{offer ? offer : 0}% Off</p>
             <p className="m-0" style={{ padding: '5px 20px', backgroundColor: 'red', color: 'white', borderRadius: '30px 0 0'  }}>Limited</p>
         </div>
           <Card.Img variant="top" src={img} height="250"/>
