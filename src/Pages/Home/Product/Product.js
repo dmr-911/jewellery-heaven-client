@@ -1,10 +1,15 @@
 import React from 'react';
 import { Card, Col, Button } from 'react-bootstrap';
+import { useHistory } from 'react-router';
 // import Rating from 'react-rating';
 
 const Product = ({product}) => {
-    const {name, offer, price, img, /*rating*/} = product;
+    const {name, offer, price, img, key /*rating*/} = product;
     const newPrice = price - price*(offer/100);
+    const history = useHistory();
+    const handlePurchase = () => {
+      history.push(`/purchase/${key}`);
+    }
     return (
         <Col>
         <Card className="bg-dark text-white">
@@ -21,7 +26,7 @@ const Product = ({product}) => {
               <del className="text-danger"><b>Price</b> : BDT {price} </del><br/>
               <b>Price</b> : BDT {newPrice}
             </Card.Text>
-            <Button variant="primary">Purchase Now</Button>
+            <Button variant="primary" onClick={handlePurchase}>Purchase Now</Button>
           </Card.Body>
         </Card>
       </Col>
