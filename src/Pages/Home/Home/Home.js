@@ -1,12 +1,14 @@
 import React from 'react';
 import Banner from '../Banner/Banner';
-import CustomNavbar from '../CustomNavbar/CustomNavbar';
+import Products from '../Products/Products';
+import Reviews from '../Reviews/Reviews';
 
 const Home = () => {
     return (
         <div>
-            <CustomNavbar></CustomNavbar>
             <Banner></Banner>
+            <Products></Products>
+            <Reviews></Reviews>
         </div>
     );
 };
