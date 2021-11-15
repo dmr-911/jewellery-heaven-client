@@ -19,7 +19,7 @@ const CustomNavbar = () => {
                             alt="React Bootstrap logo"
                         />
                     </Navbar.Brand>
-                    <Nav className="me-auto">
+                    <Nav className="mx-auto">
                         <Nav.Link as={NavLink} to="/home">Home</Nav.Link>
                         <Nav.Link as={NavLink} to="/explore">Explore</Nav.Link>
                         {
@@ -32,6 +32,7 @@ const CustomNavbar = () => {
                                 :
                                 <Nav.Link as={NavLink} to="/login">Login</Nav.Link>
                         }
+                        <p style={{ color: 'white' }}>Signed in as : {user.email}</p>
                     </Nav>
                 </Container>
             </Navbar>
