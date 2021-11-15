@@ -14,6 +14,7 @@ import NotFound from './Pages/NotFound/NotFound';
 import LogIn from './Pages/Login/Login/LogIn';
 import AuthProvider from './context/AuthProvider';
 import Dashboard from './Pages/Dashboard/Dashboard/Dashboard';
+import PrivateRoute from './Pages/PrivateRoute/PrivateRoute';
 
 function App() {
   return (
@@ -34,9 +35,9 @@ function App() {
             <Route path="/login">
               <LogIn></LogIn>
             </Route>
-            <Route path="/dashboard">
+            <PrivateRoute path="/dashboard">
               <Dashboard></Dashboard>
-            </Route>
+            </PrivateRoute>
             <Route path="*">
               <NotFound></NotFound>
             </Route>

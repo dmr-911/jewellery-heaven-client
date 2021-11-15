@@ -1,4 +1,4 @@
-import initializeAuthentication from "../Firebase/firebase.initialization";
+
 import { useEffect, useState } from "react";
 import {
   getAuth,
@@ -10,6 +10,7 @@ import {
   GoogleAuthProvider,
   updateProfile
 } from "firebase/auth";
+import initializeAuthentication from "../Firebase/firebase.initialization";
 
 initializeAuthentication();
 const auth = getAuth();

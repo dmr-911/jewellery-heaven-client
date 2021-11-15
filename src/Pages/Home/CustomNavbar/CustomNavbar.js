@@ -1,9 +1,11 @@
 import React from 'react';
-import { Container, Nav, Navbar } from 'react-bootstrap';
+import { Container, Nav, Navbar, Button } from 'react-bootstrap';
 import { NavLink } from 'react-router-dom';
+import useAuth from '../../../hooks/useAuth';
 import logo from '../../../images/logo/4180768-removebg-preview.png';
 
 const CustomNavbar = () => {
+    const {user, logOut} = useAuth();
     return (
         <div>
     <Navbar bg="dark" variant="dark">
@@ -20,8 +22,16 @@ const CustomNavbar = () => {
         <Nav className="me-auto">
         <Nav.Link as={NavLink} to="/home">Home</Nav.Link>
         <Nav.Link as={NavLink} to="/explore">Explore</Nav.Link>
-        <Nav.Link as={NavLink} to="/dashboard">Dashboard</Nav.Link>
-        <Nav.Link as={NavLink} to="/login">Login</Nav.Link>
+        {
+            user.displayName && 
+            <Nav.Link as={NavLink} to="/dashboard">Dashboard</Nav.Link>
+        }
+        {
+            user.displayName ? 
+            <Button onClick={logOut}>Logout</Button>
+            :
+            <Nav.Link as={NavLink} to="/login">Login</Nav.Link>
+        }
         </Nav>
     </Container>
     </Navbar>
