@@ -47,7 +47,6 @@ const Purchase = () => {
             rating: matchedItem.rating,
             status : 'pending'
         };
-        console.log(order);
         // send to the server
         fetch('http://localhost:5000/orders', {
             method: 'POST',
