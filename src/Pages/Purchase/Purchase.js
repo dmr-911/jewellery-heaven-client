@@ -21,7 +21,7 @@ const Purchase = () => {
     const [purchaseInfo, setPurchaseInfo] = useState(initialInfo);
 
     useEffect(() => {
-        fetch('http://localhost:5000/products')
+        fetch('https://sleepy-shore-83397.herokuapp.com/products')
             .then(res => res.json())
             .then(data => setProducts(data));
     }, []);
@@ -45,10 +45,10 @@ const Purchase = () => {
             price: matchedItem.price - matchedItem.price * (matchedItem.offer / 100),
             date: date.toLocaleDateString(),
             rating: matchedItem.rating,
-            status : 'pending'
+            status: 'pending'
         };
         // send to the server
-        fetch('http://localhost:5000/orders', {
+        fetch('https://sleepy-shore-83397.herokuapp.com/orders', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

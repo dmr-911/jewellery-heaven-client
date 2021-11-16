@@ -3,46 +3,46 @@ import { Table, Button } from 'react-bootstrap';
 import useAuth from '../../../hooks/useAuth';
 
 const AllOrders = () => {
-    const {user} = useAuth();
+    const { user } = useAuth();
     const [myOrders, setMyOrders] = useState([]);
-    useEffect(()=>{
-        fetch(`http://localhost:5000/orders`)
-        .then(res => res.json())
-        .then(data => setMyOrders(data))
-    },[user.email]);
+    useEffect(() => {
+        fetch(`https://sleepy-shore-83397.herokuapp.com/orders`)
+            .then(res => res.json())
+            .then(data => setMyOrders(data))
+    }, [user.email]);
     const handleDelete = (id) => {
         const proceed = window.confirm('Confirm delete your order?')
         if (proceed) {
-          const uri = `http://localhost:5000/myOrders/${id}`;
-          fetch(uri, {
-            method: "DELETE",
-          })
-            .then((res) => res.json)
-            .then((data) => {
-              const restOrders = myOrders.filter(order => order._id !== id)
-              setMyOrders(restOrders);
-            });
+            const uri = `https://sleepy-shore-83397.herokuapp.com/myOrders/${id}`;
+            fetch(uri, {
+                method: "DELETE",
+            })
+                .then((res) => res.json)
+                .then((data) => {
+                    const restOrders = myOrders.filter(order => order._id !== id)
+                    setMyOrders(restOrders);
+                });
         }
-    
-      };
 
-      const handleApprove = id =>{
-          const update = {status: "shipped"}
-        fetch(`http://localhost:5000/myOrders/approve/${id}`,{
+    };
+
+    const handleApprove = id => {
+        const update = { status: "shipped" }
+        fetch(`https://sleepy-shore-83397.herokuapp.com/myOrders/approve/${id}`, {
             method: 'PUT',
             headers: {
-                "content-type" : "application/json"
+                "content-type": "application/json"
             },
             body: JSON.stringify(update)
         })
-        .then(res => res.json())
-        .then(data =>{
-            fetch("http://localhost:5000/orders")
-          .then((res) => res.json())
-          .then((data) => setMyOrders(data));
-      }
-        )
-      }
+            .then(res => res.json())
+            .then(data => {
+                fetch("https://sleepy-shore-83397.herokuapp.com/orders")
+                    .then((res) => res.json())
+                    .then((data) => setMyOrders(data));
+            }
+            )
+    }
 
     return (
         <div>
@@ -62,7 +62,7 @@ const AllOrders = () => {
                 </thead>
                 <tbody>
                     {
-                        myOrders.map(order =>                     <tr key={order._id}>
+                        myOrders.map(order => <tr key={order._id}>
                             <td>{order.buyerName}</td>
                             <td>{order.email}</td>
                             <td>{order.product}</td>
@@ -70,12 +70,12 @@ const AllOrders = () => {
                             <td>{order.date}</td>
                             <td>{order.status}</td>
                             {
-                                order.status === 'approved' ?
-                                <td><Button variant="success" onClick={()=> handleApprove(order._id)} disabled>Approve</Button></td>
-                                :
-                                <td><Button variant="success" onClick={()=> handleApprove(order._id)}>Approve</Button></td>
+                                order.status === 'shipped' ?
+                                    <td><Button variant="success" onClick={() => handleApprove(order._id)} disabled>Approve</Button></td>
+                                    :
+                                    <td><Button variant="success" onClick={() => handleApprove(order._id)}>Approve</Button></td>
                             }
-                            <td><Button variant="danger" onClick={()=>handleDelete(order._id)}>Delete</Button></td>
+                            <td><Button variant="danger" onClick={() => handleDelete(order._id)}>Delete</Button></td>
                         </tr>)
                     }
                 </tbody>

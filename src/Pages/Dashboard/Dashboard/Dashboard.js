@@ -23,23 +23,21 @@ const Dashboard = () => {
     return (
         <Container fluid className="my-3">
             <Row>
-                <Col xs={12} md={3} className="border border-2 border-dark">
+                <Col xs={12} md={3} className="border border-dark">
                     <h5><u>Dashboard</u></h5>
-                    <ul>
-                        <Link to={`${url}/pay`}>Pay</Link><br />
-                        <Link to={`${url}/myOrders`}>My Orders</Link><br />
-                        <Link to={`${url}/review`}>Review</Link><br />
+                        <b><Link to={`${url}/pay`}>Pay</Link></b><br />
+                        <b><Link to={`${url}/myOrders`}>My Orders</Link></b><br />
+                        <b><Link to={`${url}/review`}>Review</Link></b><br />
                         {
                             admin && <>
-                            <Link to={`${url}/allOrders`}>Manage All Orders</Link><br />
-                        <Link to={`${url}/addProduct`}>Add a Product</Link><br />
-                        <Link to={`${url}/makeAdmin`}>Make Admin</Link><br />
-                        <Link to={`${url}/manageProducts`}>Manage Products</Link><br /></>
+                            <b><Link to={`${url}/allOrders`}>Manage All Orders</Link></b><br />
+                        <b><Link to={`${url}/addProduct`}>Add a Product</Link></b><br />
+                        <b><Link to={`${url}/makeAdmin`}>Make Admin</Link></b><br />
+                        <b><Link to={`${url}/manageProducts`}>Manage Products</Link></b><br /></>
                         }
-                        <Button onClick={logOut}>Logout</Button>
-                    </ul>
+                        <Button className="my-3 btn-danger" onClick={logOut}>Logout</Button>
                 </Col>
-                <Col xs={12} md={9} className="border border-2 border-dark">
+                <Col xs={12} md={9} className="border border-dark">
                 <Switch>
                 <Route exact path={path}>
                     <MyOrders></MyOrders>

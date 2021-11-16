@@ -30,7 +30,7 @@ const AddProduct = () => {
             ...purchaseInfo
         }
         // send to the server
-        fetch('http://localhost:5000/products', {
+        fetch('https://sleepy-shore-83397.herokuapp.com/products', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

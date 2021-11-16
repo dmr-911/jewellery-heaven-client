@@ -7,7 +7,7 @@ const MyOrders = () => {
     const { user } = useAuth();
     const [myOrders, setMyOrders] = useState([]);
     useEffect(() => {
-        fetch(`http://localhost:5000/orders?email=${user.email}`)
+        fetch(`https://sleepy-shore-83397.herokuapp.com/orders?email=${user.email}`)
             .then(res => res.json())
             .then(data => setMyOrders(data))
     }, [user.email]);
@@ -16,18 +16,18 @@ const MyOrders = () => {
         console.log(id);
         const proceed = window.confirm('Confirm delete your order?')
         if (proceed) {
-              const uri = `http://localhost:5000/myOrders/${id}`;
-              fetch(uri, {
+            const uri = `https://sleepy-shore-83397.herokuapp.com/myOrders/${id}`;
+            fetch(uri, {
                 method: "DELETE",
-              })
+            })
                 .then((res) => res.json)
-                  .then((data) => {
-                      const restOrders = myOrders.filter(order => order._id !== id)
-                      setMyOrders(restOrders);
+                .then((data) => {
+                    const restOrders = myOrders.filter(order => order._id !== id)
+                    setMyOrders(restOrders);
                 });
         }
-    
-            };
+
+    };
 
     return (
         <div>
@@ -55,12 +55,12 @@ const MyOrders = () => {
                             <td>{order.date}</td>
                             <td>{order.status}</td>
                             {
-                                order.status === 'cancelled' ?
+                                order.status === 'shipped' ?
                                     <td><Button variant="warning" disabled>Cancel</Button></td>
                                     :
                                     <td><Button onClick={() => handleDelete(order._id)} variant="warning">Cancel</Button></td>
                             }
-                            <td><Button variant="danger" onClick={()=> handleDelete(order._id)}>Delete</Button></td>
+                            <td><Button variant="danger" onClick={() => handleDelete(order._id)}>Delete</Button></td>
                         </tr>)
                             :
                             <>

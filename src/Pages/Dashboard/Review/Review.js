@@ -4,13 +4,13 @@ import { useHistory } from 'react-router';
 import useAuth from '../../../hooks/useAuth';
 
 const Review = () => {
-    const {user} = useAuth();
+    const { user } = useAuth();
     const history = useHistory();
     const [show, setShow] = useState(false);
 
     const handleClose = () => {
         setShow(false);
-        history.push('/dashboard/myOrders');
+        history.push('/');
     };
     const handleShow = () => setShow(true);
     const initialInfo = { name: user.displayName, rating: '', comment: '' };
@@ -23,13 +23,13 @@ const Review = () => {
         newInfo[field] = value;
         setReviewInfo(newInfo);
     };
-    
+
     const handleSubmit = e => {
         e.preventDefault();
         const review = {
             ...reviewInfo
         };
-        fetch('http://localhost:5000/reviews', {
+        fetch('https://sleepy-shore-83397.herokuapp.com/reviews', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -53,7 +53,7 @@ const Review = () => {
                     <Form.Control name="name" onBlur={handleBlur} type="text" placeholder="Your Name" />
                 </Form.Group>
                 <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-                    <Form.Label>Your Name</Form.Label>
+                    <Form.Label>Rating</Form.Label>
                     <Form.Control name="rating" onBlur={handleBlur} type="number" placeholder="Give Rating" />
                 </Form.Group>
                 <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
