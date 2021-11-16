@@ -10,6 +10,23 @@ const ManageProducts = () => {
             .then(data => setProducts(data))
     }, []);
 
+    const handleDelete = (id) => {
+      console.log(id);
+      const proceed = window.confirm('Confirm delete your order?')
+      if (proceed) {
+        const uri = `http://localhost:5000/products/${id}`;
+        fetch(uri, {
+          method: "DELETE",
+        })
+          .then((res) => res.json)
+          .then((data) => {
+            const restOrders = products.filter(order => order._id !== id)
+            setProducts(restOrders);
+          });
+      }
+  
+    };
+
     return (
         <Container fluid>
             <h3>Manage all products</h3>
@@ -18,6 +35,7 @@ const ManageProducts = () => {
                     products.map(product => <ManageSingleProduct
                     key={product._id}
                     product={product}
+                    handleDelete={handleDelete}
                     ></ManageSingleProduct>)
                 }
             </Row>

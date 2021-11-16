@@ -1,16 +1,33 @@
 import React, { useEffect, useState } from 'react';
-import { Table, Button } from 'react-bootstrap';
+import { Table, Button, Spinner } from 'react-bootstrap';
 import useAuth from '../../../hooks/useAuth';
 import './MyOrders.css';
 
 const MyOrders = () => {
-    const {user} = useAuth();
+    const { user } = useAuth();
     const [myOrders, setMyOrders] = useState([]);
-    useEffect(()=>{
+    useEffect(() => {
         fetch(`http://localhost:5000/orders?email=${user.email}`)
-        .then(res => res.json())
-        .then(data => setMyOrders(data))
-    },[user.email]);
+            .then(res => res.json())
+            .then(data => setMyOrders(data))
+    }, [user.email]);
+
+    const handleDelete = (id) => {
+        console.log(id);
+        const proceed = window.confirm('Confirm delete your order?')
+        if (proceed) {
+              const uri = `http://localhost:5000/myOrders/${id}`;
+              fetch(uri, {
+                method: "DELETE",
+              })
+                .then((res) => res.json)
+                  .then((data) => {
+                      const restOrders = myOrders.filter(order => order._id !== id)
+                      setMyOrders(restOrders);
+                });
+        }
+    
+            };
 
     return (
         <div>
@@ -30,16 +47,25 @@ const MyOrders = () => {
                 </thead>
                 <tbody>
                     {
-                        myOrders.map(order =>                     <tr key={order._id}>
+                        myOrders.length ? myOrders.map(order => <tr key={order._id}>
                             <td>{order.buyerName}</td>
                             <td>{order.email}</td>
                             <td>{order.product}</td>
                             <td>{order.price}</td>
                             <td>{order.date}</td>
                             <td>{order.status}</td>
-                            <td><Button variant="warning">Cancel</Button></td>
-                            <td><Button variant="danger">Delete</Button></td>
+                            {
+                                order.status === 'cancelled' ?
+                                    <td><Button variant="warning" disabled>Cancel</Button></td>
+                                    :
+                                    <td><Button onClick={() => handleDelete(order._id)} variant="warning">Cancel</Button></td>
+                            }
+                            <td><Button variant="danger" onClick={()=> handleDelete(order._id)}>Delete</Button></td>
                         </tr>)
+                            :
+                            <>
+                                <Spinner animation="grow" size="sm" />
+                                <Spinner animation="grow" /></>
                     }
                 </tbody>
             </Table>

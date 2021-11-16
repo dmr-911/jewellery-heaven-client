@@ -10,6 +10,39 @@ const AllOrders = () => {
         .then(res => res.json())
         .then(data => setMyOrders(data))
     },[user.email]);
+    const handleDelete = (id) => {
+        const proceed = window.confirm('Confirm delete your order?')
+        if (proceed) {
+          const uri = `http://localhost:5000/myOrders/${id}`;
+          fetch(uri, {
+            method: "DELETE",
+          })
+            .then((res) => res.json)
+            .then((data) => {
+              const restOrders = myOrders.filter(order => order._id !== id)
+              setMyOrders(restOrders);
+            });
+        }
+    
+      };
+
+      const handleApprove = id =>{
+          const update = {status: "shipped"}
+        fetch(`http://localhost:5000/myOrders/approve/${id}`,{
+            method: 'PUT',
+            headers: {
+                "content-type" : "application/json"
+            },
+            body: JSON.stringify(update)
+        })
+        .then(res => res.json())
+        .then(data =>{
+            fetch("http://localhost:5000/orders")
+          .then((res) => res.json())
+          .then((data) => setMyOrders(data));
+      }
+        )
+      }
 
     return (
         <div>
@@ -36,8 +69,13 @@ const AllOrders = () => {
                             <td>{order.price}</td>
                             <td>{order.date}</td>
                             <td>{order.status}</td>
-                            <td><Button variant="success">Approve</Button></td>
-                            <td><Button variant="danger">Delete</Button></td>
+                            {
+                                order.status === 'approved' ?
+                                <td><Button variant="success" onClick={()=> handleApprove(order._id)} disabled>Approve</Button></td>
+                                :
+                                <td><Button variant="success" onClick={()=> handleApprove(order._id)}>Approve</Button></td>
+                            }
+                            <td><Button variant="danger" onClick={()=>handleDelete(order._id)}>Delete</Button></td>
                         </tr>)
                     }
                 </tbody>
