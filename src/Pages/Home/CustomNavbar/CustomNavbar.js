@@ -11,9 +11,6 @@ const CustomNavbar = () => {
         <div>
             <Navbar bg="dark" variant="dark" expand="lg">
                 <Container fluid>
-                    <Navbar.Brand href="#">Navbar scroll</Navbar.Brand>
-                    <Navbar.Toggle aria-controls="navbarScroll" />
-                    <Navbar.Collapse id="navbarScroll">
                     <Navbar.Brand as={Link} to="/home" className="d-flex align-items-center">
                     <img
                     src={logo}
@@ -24,6 +21,8 @@ const CustomNavbar = () => {
                     />
                     <b>Jewellery Heaven</b>
                     </Navbar.Brand>
+                    <Navbar.Toggle aria-controls="navbarScroll" />
+                    <Navbar.Collapse id="navbarScroll">
                     <Nav className="ms-auto">
                     <Nav.Link as={NavLink} to="/home">Home</Nav.Link>
                     <Nav.Link as={NavLink} to="/explore">Explore</Nav.Link>
