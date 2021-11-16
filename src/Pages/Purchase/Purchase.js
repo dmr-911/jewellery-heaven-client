@@ -43,7 +43,8 @@ const Purchase = () => {
             product: matchedItem.name,
             price: matchedItem.price - matchedItem.price * (matchedItem.offer / 100),
             date: date.toLocaleDateString(),
-            rating: matchedItem.rating
+            rating: matchedItem.rating,
+            status : 'pending'
         }
         // send to the server
         fetch('http://localhost:5000/orders', {

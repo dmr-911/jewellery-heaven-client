@@ -21,7 +21,7 @@ const Dashboard = () => {
     let { path, url } = useRouteMatch();
 
     return (
-        <Container className="my-3">
+        <Container fluid className="my-3">
             <Row>
                 <Col xs={12} md={3} className="border border-2 border-dark">
                     <h5><u>Dashboard</u></h5>
