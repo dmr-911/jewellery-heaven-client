@@ -42,7 +42,7 @@ const Dashboard = () => {
                 <Col xs={12} md={9} className="border border-2 border-dark">
                 <Switch>
                 <Route exact path={path}>
-                    <Review></Review>
+                    <MyOrders></MyOrders>
                 </Route>
                 <Route path={`${path}/pay`}>
                   <Pay></Pay>

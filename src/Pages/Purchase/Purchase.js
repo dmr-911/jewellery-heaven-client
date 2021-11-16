@@ -9,7 +9,7 @@ const Purchase = () => {
 
     const handleClose = () => {
         setShow(false);
-        history.push('/');
+        history.push('/dashboard/myOrders');
     };
     const handleShow = () => setShow(true);
     const { user } = useAuth();
@@ -37,6 +37,7 @@ const Purchase = () => {
     }
 
     const handlePurchase = e => {
+        e.preventDefault();
         // collect data
         const order = {
             ...purchaseInfo,
@@ -45,7 +46,8 @@ const Purchase = () => {
             date: date.toLocaleDateString(),
             rating: matchedItem.rating,
             status : 'pending'
-        }
+        };
+        console.log(order);
         // send to the server
         fetch('http://localhost:5000/orders', {
             method: 'POST',
@@ -55,13 +57,11 @@ const Purchase = () => {
             body: JSON.stringify(order)
         })
             .then(res => res.json())
-            .then(data => {
-                if (data.insertedId) {
+            .then(resultData => {
+                if (resultData.insertedId) {
                     handleShow();
                 }
             });
-
-        e.preventDefault();
     }
 
     return (

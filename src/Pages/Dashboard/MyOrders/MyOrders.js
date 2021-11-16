@@ -11,7 +11,6 @@ const MyOrders = () => {
         .then(res => res.json())
         .then(data => setMyOrders(data))
     },[user.email]);
-    console.log(myOrders);
 
     return (
         <div>
