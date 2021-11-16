@@ -4,11 +4,11 @@ import { useHistory } from 'react-router';
 // import Rating from 'react-rating';
 
 const Product = ({product}) => {
-    const {name, offer, price, img, key /*rating*/} = product;
+    const {name, offer, price, img, _id /*rating*/} = product;
     const newPrice = price - price*(offer/100);
     const history = useHistory();
     const handlePurchase = () => {
-      history.push(`/purchase/${key}`);
+      history.push(`/purchase/${_id}`);
     }
     return (
         <Col>

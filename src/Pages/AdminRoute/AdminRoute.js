@@ -7,9 +7,9 @@ import {
 import useAuth from '../../hooks/useAuth';
 
 const AdminRoute = ({ children, ...rest }) => {
-  const { user, admin, isLoading } = useAuth();
+  const { user, admin } = useAuth();
 
-  if (isLoading) {
+  if (!admin) {
     return <Spinner animation="border" />;
   }
   else {

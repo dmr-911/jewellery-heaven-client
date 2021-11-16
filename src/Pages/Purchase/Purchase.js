@@ -15,7 +15,7 @@ const Purchase = () => {
     const { user } = useAuth();
     const history = useHistory();
     const date = new Date();
-    const { key } = useParams();
+    const { id } = useParams();
     const [products, setProducts] = useState([]);
     const initialInfo = { buyerName: user.displayName, email: user.email, phone: '' };
     const [purchaseInfo, setPurchaseInfo] = useState(initialInfo);
@@ -26,7 +26,7 @@ const Purchase = () => {
             .then(data => setProducts(data));
     }, []);
 
-    const matchedItem = products.find(product => product.key === parseInt(key));
+    const matchedItem = products.find(product => product._id === id);
 
     const handleOnBlur = e => {
         const field = e.target.name;

@@ -14,6 +14,7 @@ const AllOrders = () => {
 
     return (
         <div>
+            <h5>Manage All Orders</h5>
             <Table responsive striped bordered hover variant="dark">
                 <thead>
                     <tr>

@@ -15,6 +15,7 @@ const MyOrders = () => {
 
     return (
         <div>
+            <h5>My Orders</h5>
             <Table responsive striped bordered hover variant="dark">
                 <thead>
                     <tr>
