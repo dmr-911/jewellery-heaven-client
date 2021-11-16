@@ -128,7 +128,6 @@ const Footer = () => {
                   </>
                 {/* )} */}
               </form>
-              <div className="divider bg-info rounded my-3 mx-auto"></div>
             </Col>
           </Row>
         </Container>
