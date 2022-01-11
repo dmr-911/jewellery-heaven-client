@@ -30,7 +30,7 @@ const ManageProducts = () => {
     return (
         <Container fluid>
             <h3>Manage all products</h3>
-            <Row xs={1} md={2} className="g-2 mb-5">
+            <Row xs={1} md={3} className="g-2 mb-5">
                 {
                     products.length ?
                         products.map(product => <ManageSingleProduct
@@ -39,9 +39,12 @@ const ManageProducts = () => {
                             handleDelete={handleDelete}
                         ></ManageSingleProduct>)
                         :
-                        <Container fluid className="mx-auto my-auto">
-                            <Spinner animation="grow" size="sm" />
-                            <Spinner animation="grow" /></Container>
+                        <div className="d-flex justify-content-center align-items-center w-100" style={{height: '80vh'}}>
+                        <div>
+                        <Spinner animation="grow" size="sm" />
+                        <Spinner animation="grow" />
+                        </div>
+                      </div>
                 }
             </Row>
         </Container>

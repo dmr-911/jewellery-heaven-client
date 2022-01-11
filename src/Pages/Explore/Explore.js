@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Container, Row } from 'react-bootstrap';
+import { Container, Row, Spinner } from 'react-bootstrap';
 import Product from '../Home/Product/Product';
 import './Explore.css';
 
@@ -15,10 +15,17 @@ const Explore = () => {
         <Container>
             <Row xs={1} md={3} className="g-4 py-5">
                 {
-                    products.map(product => <Product
+                    products.length ? products.map(product => <Product
                         key={product._id}
                         product={product}
                     ></Product>)
+                    :
+                    <div className="d-flex justify-content-center align-items-center w-100" style={{height: '80vh'}}>
+                    <div>
+                    <Spinner animation="grow" size="sm" />
+                    <Spinner animation="grow" />
+                    </div>
+                  </div>
                 }
             </Row>
         </Container>
