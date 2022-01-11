@@ -13,7 +13,7 @@ const Product = ({product}) => {
     }
     return (
         <Col>
-        <Card className="bg-dark text-white">
+        <Card className="bg-dark text-white product-card">
         <div className="d-flex justify-content-between p-0">
             <p className="m-0" style={{ padding: '5px 20px', backgroundColor: 'red', color: 'white', borderRadius: '0 0 30px 0'  }}>{offer ? offer : 0}% Off</p>
             <p className="m-0" style={{ padding: '5px 20px', backgroundColor: 'red', color: 'white', borderRadius: '30px 0 0'  }}>Limited</p>
@@ -24,7 +24,7 @@ const Product = ({product}) => {
                 {name}
             </Card.Title>
             <Card.Text>
-              <del className="text-danger"><b>Price</b> : BDT {price} </del><br/>
+              <del className="text-danger rounded-3"><b>Price</b> : BDT {price} </del><br/>
               <b>Price</b> : BDT {newPrice} <br/><Rating
               readonly
               initialRating={rating}
