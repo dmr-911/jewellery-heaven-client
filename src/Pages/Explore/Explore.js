@@ -13,7 +13,7 @@ const Explore = () => {
     return (
         <Container fluid className="explore">
         <Container>
-            <Row xs={1} md={2} className="g-4 py-5">
+            <Row xs={1} md={3} className="g-4 py-5">
                 {
                     products.map(product => <Product
                         key={product._id}

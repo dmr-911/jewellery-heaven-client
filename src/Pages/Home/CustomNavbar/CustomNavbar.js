@@ -2,7 +2,6 @@ import React from 'react';
 import { Container, Nav, Navbar, Button } from 'react-bootstrap';
 import { Link, NavLink } from 'react-router-dom';
 import useAuth from '../../../hooks/useAuth';
-import logo from '../../../images/logo/logo3.png';
 
 const CustomNavbar = () => {
     const { user, logOut } = useAuth();
@@ -12,13 +11,6 @@ const CustomNavbar = () => {
             <Navbar bg="dark" variant="dark" expand="lg">
                 <Container fluid>
                     <Navbar.Brand as={Link} to="/home" className="d-flex align-items-center">
-                    <img
-                    src={logo}
-                    width="160"
-                    height="60"
-                    className="d-inline-block align-top"
-                    alt="React Bootstrap logo"
-                    />
                     <b>Jewellery Heaven</b>
                     </Navbar.Brand>
                     <Navbar.Toggle aria-controls="navbarScroll" />
