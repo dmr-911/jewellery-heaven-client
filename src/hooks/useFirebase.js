@@ -75,7 +75,7 @@ const useFirebase = () => {
       }
       setIsLoading(false);
     });
-  }, [auth, user]);
+  }, [auth]);
 
   useEffect(() => {
     fetch(`https://sleepy-shore-83397.herokuapp.com/users/${user.email}`)
