@@ -1,40 +1,41 @@
 import React from 'react';
 import './Banner.css';
-import { Carousel } from 'react-bootstrap';
-import img1 from '../../../images/banner/pearls-g5d4c68d34_1920.jpg';
-import img2 from '../../../images/banner/jewellery2.jpg';
-import img3 from '../../../images/banner/jewellery3.jpg';
+import {useHistory} from 'react-router-dom';
+import { Col, Container, Row } from 'react-bootstrap';
+import Typewriter from 'typewriter-effect';
 
 const Banner = () => {
+  const history = useHistory();
+  const handleClick = () =>{
+    history.push('/explore')
+  };
+
     return (
-        <div>
-            <Carousel>
-    <Carousel.Item>
-    <img
-      className="d-block w-100 banner-img"
-      src={img3}
-      alt="Third slide"
-    />
+<Container fluid id="banner">
+<Row md={2} xs={1} className="h-100">
+    <Col className="h-100 d-flex justify-content-center align-items-center">
+    <div>
+    <h3 className="fs-1 text-white" style={{height: '100px'}}>
+        <Typewriter
+        
+        options={{
+            autoStart: true,
+            loop: true
+        }}
+        onInit={(typeWriter)=>{
+            typeWriter.typeString("We are the largest import  and exporter of any type of jewels in Bangladesh. ")
+            .pauseFor(2000)
+            .start()
+        }}
+        />
+    </h3>
+    <button onClick={handleClick} className="btn-banner d-inline mt-5">EXPLORE</button>
+</div>
+    </Col>
+    <Col></Col>
+</Row>
 
-  </Carousel.Item>
-  <Carousel.Item interval={1000}>
-    <img
-      className="d-block w-100 banner-img"
-      src={img1}
-      alt="First slide"
-    />
-
-  </Carousel.Item>
-  <Carousel.Item interval={500}>
-    <img
-      className="d-block w-100 banner-img"
-      src={img2}
-      alt="Second slide"
-    />
-
-  </Carousel.Item>
-</Carousel>
-        </div>
+</Container>
     );
 };
 

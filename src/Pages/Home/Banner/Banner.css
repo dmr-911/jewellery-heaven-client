@@ -1,3 +1,29 @@
-.banner-img{
-    height: 500px;
+#banner{
+    background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('../../../images/banner/pendant.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 92vh;
+}
+.btn-banner{
+    background-color: rgb(34, 62, 94);
+    font-family: Roboto;
+    text-transform: uppercase;
+    cursor: pointer;
+    box-shadow: none;
+    outline: none;
+    box-sizing: border-box;
+    height: auto;
+    width: 200px;
+    color: white;
+    white-space: nowrap;
+    font-weight: 900;
+    border-color: transparent;
+    padding: 20px 32px;
+    border-radius: 3px;
+    transform-origin: 72.0781px 26px;
+    transition: background-color .6s;
+}
+.btn-banner:hover{
+    /* background-color: slateblue; */
+    background-color: rgb(52, 169, 173);
 }
