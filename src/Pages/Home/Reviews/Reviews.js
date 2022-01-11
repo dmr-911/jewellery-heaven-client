@@ -13,12 +13,12 @@ const Reviews = () => {
     return (
         <Container fluid className="reviews">
         <h2 className="text-white mb-2">
-          <span className="text-white">User</span>{" "}
+          <span className="text-dark">User</span>{" "}
           <span className="color-orrange">Reviews</span>
         </h2>
         <div className="divider bg-info rounded mb-3 mx-auto"></div>
             <Container className="pb-4">
-                <Row xs={1} md={3}>
+                <Row xs={1} md={3} className="g-4">
                     {
                         reviews.map(review => <Review
                             key={review._id}

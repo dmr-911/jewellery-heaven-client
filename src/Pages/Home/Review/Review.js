@@ -1,12 +1,13 @@
 import React from 'react';
 import { Card, Col } from 'react-bootstrap';
 import Rating from 'react-rating';
+import './Review.css';
 
 const Review = ({ review }) => {
-    const { name, _id, rating, comment } = review;
+    const { name, rating, comment } = review;
     return (
         <Col>
-            <Card>
+            <Card className="product-card">
                 <Card.Img variant="top" src="" />
                 <Card.Body>
                     <Card.Title>{name}</Card.Title>
@@ -17,7 +18,7 @@ const Review = ({ review }) => {
                     fullSymbol="fas fa-star golden-rating"
                     />
                     <Card.Text>
-                      Users comment :  {comment}
+                        {comment.slice(0, 50)}
                     </Card.Text>
                 </Card.Body>
             </Card>
