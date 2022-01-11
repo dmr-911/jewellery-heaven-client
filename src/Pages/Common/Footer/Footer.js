@@ -3,31 +3,14 @@ import { Col, Container, Row } from 'react-bootstrap';
 import './Footer.css';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPhone, faEnvelope, faMapMarkerAlt } from "@fortawesome/free-solid-svg-icons";
-import useAuth from '../../../hooks/useAuth';
-import { useForm } from 'react-hook-form';
 // import { useState } from 'react';
 
 const Footer = () => {
   // const [subscriber, setSubscriber] = useState({});
-  const { user } = useAuth();
     const phone = <FontAwesomeIcon icon={faPhone} style={{color: 'tomato'}}/>;
     const message = <FontAwesomeIcon icon={faEnvelope} style={{color: 'tomato'}}/>;
   const location = <FontAwesomeIcon icon={faMapMarkerAlt} style={{ color: 'tomato' }} />;
-  
-  const { register, handleSubmit } = useForm();
-  const onSubmit = (data) => {
-    fetch("https://infinite-stream-42915.herokuapp.com/subscriber", {
-      method: "POST",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(data),
-    }).then((result) => {
-      fetch(`https://infinite-stream-42915.herokuapp.com/subscriber?search=${user.email}`)
-        .then((res) => res.json())
-        // .then((data) => setSubscriber(data));
-    });
-  };
+
     return (
       <>
         <Container fluid className="bg-dark text-white py-5">

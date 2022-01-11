@@ -1,6 +1,4 @@
-import React, { useEffect, useState } from 'react';
 import { Card, Col, Button } from 'react-bootstrap';
-import useAuth from '../../../hooks/useAuth';
 
 const ManageSingleProduct = ({ product, handleDelete }) => {
   const { img, name, price, offer, _id } = product;

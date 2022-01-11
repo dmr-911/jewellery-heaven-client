@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useState } from 'react';
 import { Card, Col, Form, Button } from 'react-bootstrap';
 import { Link, useHistory } from 'react-router-dom';
 import useAuth from '../../../hooks/useAuth';
@@ -6,7 +6,7 @@ import useAuth from '../../../hooks/useAuth';
 const SignUp = () => {
     const [loginData, setLoginData] = useState({});
     const history = useHistory();
-    const { user, registerUser, isLoading, authError, error } = useAuth();
+    const { registerUser, isLoading, error } = useAuth();
 
     const handleOnBlur = e => {
         const field = e.target.name;
