@@ -31,7 +31,7 @@ const Footer = () => {
     return (
       <>
         <Container fluid className="bg-dark text-white py-5">
-          <Row xs={1} md={4}>
+          <Row xs={1} md={3}>
             <Col>
               <div className="d-flex align-items-center justify-content-center mb-3">
                 <div
@@ -98,36 +98,6 @@ const Footer = () => {
               </p>
               <p className="mb-3">Take only memories, leave only footprints</p>
               <div className="divider bg-info rounded my-3 mx-auto"></div>
-            </Col>
-            <Col>
-              <div className="d-flex align-items-center justify-content-center mb-4">
-                <div
-                  style={{
-                    backgroundColor: "tomato",
-                    width: "4px",
-                    height: "20px",
-                  }}
-                  className="me-4"
-                ></div>
-                <b>SUBSCRIBE US</b>
-              </div>
-              <form onSubmit={handleSubmit(onSubmit)}>
-                {/* {subscriber ? (
-                  <input type="submit" className="text-white" value="Subscribed" disabled/>
-                ) : ( */}
-                    <>
-                <input
-                  // defaultValue={user.email}
-                  placeholder="Your email"
-                  {...register("email", { required: true })}
-                  style={{ width: "90%" }}
-                  className="mb-3 rounded"
-                />
-                <br />
-                  <input type="submit" className="bg-primary text-white" value="Subscribe"/>
-                  </>
-                {/* )} */}
-              </form>
             </Col>
           </Row>
         </Container>
